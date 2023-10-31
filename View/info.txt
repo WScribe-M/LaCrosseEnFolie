@@ -1,0 +1,1 @@
+La vue a pour seul but d’afficher des informations de manière formatée et présentable pour l’utilisateur. Il n’y a aucune logique dans cette partie.
