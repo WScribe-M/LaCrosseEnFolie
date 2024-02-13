@@ -1,1 +1,0 @@
-Le contrôleur est l’orchestre de votre application. C’est la jonction entre votre modèle et votre vue. Il n’y a pas de logique dedans. Enfin pas de la logique telle que des algorithmes. Juste une succession d’appel provenant du modèle et des vues.
