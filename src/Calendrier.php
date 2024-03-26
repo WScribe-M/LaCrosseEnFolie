@@ -26,8 +26,7 @@ class Calendrier
     #[ManyToOne(targetEntity: Ville::class)]
     #[JoinColumn(name:'ville_id', referencedColumnName: 'id')]
     private Ville|null $ville = null;
-
-
+ 
     /**
      * Get id.
      *
