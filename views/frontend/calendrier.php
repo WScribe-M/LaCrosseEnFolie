@@ -30,8 +30,9 @@ $(document).ready(function() {
                 type: 'POST',
                 url: 'http://195.154.118.169/mathea/hockey/cli-config.php?c=calendrier&t=api&nb=4',
                 success: function(datas) {
-                    datas = JSON.parse(datas);
-
+                    //datas = JSON.parse(datas);
+                    datas = jQuery.parseJSON(datas);
+                    
                     for (let i = 0; i < 4; i++) {
                         const data = datas[i];
                         const dt = new Date(data.Date.date); 
@@ -65,64 +66,7 @@ $(document).ready(function() {
             });
         });
 });
-
-
-      
-    /*
-    $.ajax({
-        type: 'POST',
-        url: 'http://195.154.118.169/mathea/hockey/cli-config.php?c=calendrier&t=api&nb=4',
-        success: function(datas) {
-            datas = JSON.parse(datas);
-            const container = $('.container');
-            //nbMatch = datas.length;
-            //console.log(nbMatch);
-            //nbPages = nbMatch/4;
-           // console.log(nbPages);
-
-
-            for (let i = 0; i < 4; i++) {
-                data = datas[i];
-           
-               
                 
-                dt = new Date(data.Date.date); 
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                }            
-
-                // Clone the cadre template
-                const cadre = $('.cadre').first().clone();
-
-                // Fill data into the clone
-                cadre.find('#equipe1').attr('src', 'data:image/png;base64,' + data.Logo[0]);
-                cadre.find('.nomEquipe1').html(data.Equipes[0]);
-                cadre.find('#equipe2').attr('src', 'data:image/png;base64,' + data.Logo[1]);
-                cadre.find('.nomEquipe2').html(data.Equipes[1]);
-                cadre.find('.date').html(dt.toLocaleDateString('fr-FR', options));
-                cadre.find('.heure').html(dt.toLocaleTimeString('fr-FR'));
-                cadre.find('#score1').html(data.Score[0]);
-                cadre.find('#score2').html(data.Score[1]);
-
-                // Show the cadre
-                cadre.css('display', 'block');
-
-                // Append the filled clone to the container
-                container.append(cadre);
-            }
-        },
-
-        error: function(xhr, status, error) {
-            console.error(status, error);
-        }
-    
-    })
-  
-});*/
-
-
+              
 </script>
 {% endblock %}

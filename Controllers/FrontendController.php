@@ -26,4 +26,11 @@ class FrontendController extends Controller
         echo $this->twig->render('frontend/calendrier.php'); 
     }
 
+    #[Role('Anonym')]
+    function classement()
+    {
+        //echo $this->twig->render('frontend/calendrier.php'); 
+        echo $this->twig->render('frontend/classement.php'); 
+    }
+
 }

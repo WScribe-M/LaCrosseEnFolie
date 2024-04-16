@@ -32,7 +32,7 @@
         <a href="?c=frontend&t=accueil"><img src="views/template/favicon.svg" alt="logo de la page"></a>
           <nav>
               <ul id="menu">
-                <li><a href="#">Classement</a></li>
+                <li><a href="?c=frontend&t=classement">Classement</a></li>
                 <li><a href="?c=frontend&t=calendrier">Calendrier</a></li>
                 <li><a href="?c=frontend&t=guide">Guide</a></li>
                 <li><a href="#">Boutique</a></li>
@@ -59,9 +59,6 @@
                 <p class="copyright">La Crosse En Folie © 2023</p>
             </footer>
         </div>
-        
- 
-    
    
 
     {% block script %}

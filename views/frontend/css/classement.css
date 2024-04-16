@@ -1,0 +1,19 @@
+table {
+    border-collapse: collapse; /* Fusionner les bordures des cellules adjacentes */
+    width: 100%; /* Largeur de la table */
+    margin:30px;
+}
+
+table td, table th {
+    border: 1px solid #dddddd; /* Définir la bordure pour chaque cellule */
+    padding: 8px; /* Ajouter un espace autour du contenu de chaque cellule */
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Ajouter un fond de couleur pour les lignes paires */
+}
+
+table tr:hover {
+    background-color: #dddddd; /* Ajouter une couleur de fond au survol de la souris */
+}
