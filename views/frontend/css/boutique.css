@@ -1,0 +1,31 @@
+
+
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+section {
+    margin-top:90px;
+}
+
+img {
+    width:100%;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+#titre {
+    padding-bottom:30px;
+    padding-top:20px;
+    text-align:center;
+    background-color: rgba(0,0,0,0.8);
+    color:white;
+}
+
+ h1 {
+    font-family: "Lucida Console", "Courier New", monospace !important;
+    text-transform: uppercase;
+   
+}

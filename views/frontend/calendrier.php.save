@@ -9,48 +9,32 @@
 
 <div id="pagination">
     <span v-for="bt in 23">
-	<button @click="getVueMatches(bt)" id="buttonMatches">[[bt]]</button>
+	<button @click="getMatches(1)">{{bt}}</button>
     </span>
 </div>
 {% endblock %}
 
 {% block script %}
-<script type="importmap">
-  { "imports": {
-      "vue":               "https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.41/vue.esm-browser.prod.js",
-      "vue-router":        "https://cdnjs.cloudflare.com/ajax/libs/vue-router/4.1.5/vue-router.esm-browser.min.js",
-      "@vue/devtools-api": "https://unpkg.com/@vue/devtools-api@6.4.5/lib/esm/index.js"
-  } }
-</script>
-
-<script type="module">
-import { createApp, ref } from 'vue'
-
-createApp({
-  delimiters: ['[[', ']]'],
-  setup() {
-    const count = ref(0)
-    
-    function getVueMatches(bt) {
-     // console.log(count.value,bt);
-      window.getMatches(bt);
-      count.value++
-    }
-
-    return {
-      count,
-      getVueMatches
-    }
-  }
-}).mount('#pagination')
-
-//Au chargement de la page
+<script>
 $(document).ready(function() {
+    const { createApp, ref } = Vue
+    createApp({
+	
+        setup() {
+	    return {
+            }
+        }
+    }).mount('#pagination')
 
-    window.getMatches = function(numPage) {
-       
+
+
+    getMatches(1);  
+    $(".btPage").on("click",function(){
+        getMatches(6);
+    })
+    function getMatches(numPage) {
         // Récupération du modèle HTML une seule fois
-        fetch('views/frontend/calendrier.html')
+        fetch('views/frontend/fichier.html')
             .then(response => response.text())
             .then(function(res){
                 // Utilisation du modèle HTML récupéré
@@ -62,17 +46,13 @@ $(document).ready(function() {
 
                 // Enlever le modèle HTML initial de la page
                 response.remove();
-                //console.log('http://195.154.118.169/mathea/hockey/cli-config.php?c=calendrier&t=api&nb=4&page='+numPage);
-
-                // Requête AJAX pour la récupération des matchs 
+                console.log('http://195.154.118.169/mathea/hockey/cli-config.php?c=calendrier&t=api&nb=4&page='+numPage);
                 $.ajax({
                     method: 'POST',
                     url: 'http://195.154.118.169/mathea/hockey/cli-config.php?c=calendrier&t=api&nb=4&page='+numPage,
                     dataType: 'json',
                     success: function(datas) {
                         //datas=JSON.parse(datas);
-                        
-                        // Récupérations des matchs 4 par 4.
                         for (let i = 0; i < 4; i++) {
                             const data = datas[i];
                             const dt = new Date(data.Date.date); 
@@ -82,10 +62,9 @@ $(document).ready(function() {
                                 month: 'long',
                                 day: 'numeric',
                             };
-
-                            //si modulo 2 = reste 0 alors on ajoute une div 'row'
                             if((i % 2)==0) {
-                                container.append("<div class='row'>");  
+                                container.append("<div class='row'>");
+                                
                             } 
                             // Construction dynamique du modèle HTML pour chaque match
                             let matchHTML = response.clone();
@@ -100,7 +79,7 @@ $(document).ready(function() {
                             matchHTML.find('#score1').html(data.Score[0]);
                             matchHTML.find('#score2').html(data.Score[1]);
 
-                            // Ajout de la 2ème div 'row' à la page
+                            // Ajout du modèle HTML du match à la container
                             $(".row").last().append(matchHTML);
                             
                         }
@@ -111,7 +90,6 @@ $(document).ready(function() {
                 });
             });
         }
-        getMatches(1);
 });
            
               

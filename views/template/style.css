@@ -2,6 +2,7 @@ body {
   height: 100%;
   cursor: default;
   position: relative;
+ 
 }
 
 
@@ -12,17 +13,18 @@ header {
   background-color: black;
   opacity: 0.9;
   color: #fff;
-  top: 0;
   padding: 20px;
+  width:100%;
+  position: fixed;
+  top: 0;
   z-index: 1000;
   font-family: 'Permanent Marker', cursive !important;
 }
 
 header img {
   width: 60px;
-  height: auto;
   float: left;
-  margin-top: -18px;
+  margin-top: -10px;
   display:block;
 }
 
@@ -30,6 +32,10 @@ nav {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  height:50px;
+  font-size:25px;
+ 
+
 }
 
 nav ul {
@@ -50,7 +56,6 @@ nav ul {
 #menu a {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
 }
 
 #menu a:hover {

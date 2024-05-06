@@ -1,4 +1,4 @@
-{% extends "template/base.php" %}
+{% extends "template/base.html" %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="views/frontend/css/new.css"/>

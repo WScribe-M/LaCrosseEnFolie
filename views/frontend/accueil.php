@@ -1,5 +1,5 @@
 
-{% extends "template/base.php" %}
+{% extends "template/base.html" %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="views/frontend/css/accueil.css"/>
@@ -22,7 +22,7 @@
 
                     <div class="menu">
                         <div class="actualite">
-                        <h2><a href="?c=frontend&t=guide" style="text-decoration:none">Classement</a></h2>
+                        <h2><a href="?c=frontend&t=classement" style="text-decoration:none">Classement</a></h2>
                         </div>
                     
                         <div class="match">
@@ -34,7 +34,7 @@
                         </div>
                     
                         <div class="boutique">
-                            <h2><a href="?c=frontend&t=guide" style="text-decoration:none">Boutique</a></h2>
+                            <h2><a href="?c=frontend&t=boutique" style="text-decoration:none">Boutique</a></h2>
                         </div>
                     </div>
         </div>

@@ -6,6 +6,10 @@ body {
     cursor: default;
 }
 
+.container-md {
+  margin-top: 90px;
+}
+
 .fixed-header { 
     top: 0;
     width: 100%;

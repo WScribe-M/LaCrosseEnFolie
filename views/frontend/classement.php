@@ -1,4 +1,4 @@
-{% extends "template/base.php" %}
+{% extends "template/base.html" %}
 
 {% block stylesheet %}
 <link rel="stylesheet" href="views/frontend/css/classement.css"/>
@@ -27,13 +27,12 @@
     $(document).ready(function() {
        
         $.ajax({
-            type: 'POST',
+            method: 'POST',
             url: 'http://195.154.118.169/mathea/hockey/cli-config.php?c=classement&t=api',
-            
+            dataType:"json",
             success: function(datas) {
-                 //datas = JSON.parse(datas);
-                datas = jQuery.parseJSON(datas);
-                console.log(datas);  
+                
+                //console.log(datas);  
                 populateTable(datas); // Appeler une fonction pour peupler le tableau avec les données récupérées
             },
             error: function(xhr, status, error) {
