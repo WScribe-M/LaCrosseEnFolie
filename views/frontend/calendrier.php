@@ -5,11 +5,16 @@
 {% endblock %}
 
 {% block body %}
+{#<div id="loader">
+    <img src="views/images/loader3.gif" alt="Chargement en cours...">
+</div>#}
 <div class="container"></div>
-
 <div id="pagination">
-    <span v-for="bt in 23">
-	<button @click="getVueMatches(bt)" id="buttonMatches">[[bt]]</button>
+    <span v-for="bt in 23" id="buttonsPagination"> {#affiche les 23 boutons#} 
+    {#<button @click="prevPage" :disabled="currentPage === 1" id="buttonMatchesPrev"></button>#}
+    <button @click="getVueMatches(bt)" id="buttonMatches">[[bt]]</button>
+    {#<p id="pageIndex">Page [[currentPage]] sur [[totalPages]]</p>#}
+    {#<button @click="nextPage" :disabled="currentPage === totalPages" id="buttonMatchesNext"></button>#}
     </span>
 </div>
 {% endblock %}
@@ -24,25 +29,47 @@
 </script>
 
 <script type="module">
+
 import { createApp, ref } from 'vue'
 
 createApp({
   delimiters: ['[[', ']]'],
   setup() {
-    const count = ref(0)
-    
-    function getVueMatches(bt) {
-     // console.log(count.value,bt);
+    {#const currentPage = ref(1);
+    const totalPages = ref(23); // Assurez-vous d'obtenir ce nombre dynamiquement
+
+    function prevPage() {
+        if (currentPage.value > 1) {
+            currentPage.value--;
+            getMatches(currentPage.value);
+        }
+    }
+
+    function nextPage() {
+        if (currentPage.value < totalPages.value) {
+            currentPage.value++;
+            getMatches(currentPage.value);
+        }
+    }#}
+
+    function getVueMatches(bt) {  
       window.getMatches(bt);
-      count.value++
     }
 
     return {
-      count,
-      getVueMatches
+        {#currentPage,
+        totalPages,
+        prevPage,
+        nextPage,#}
+        getVueMatches
     }
   }
 }).mount('#pagination')
+
+{#$(window).on("load", function() {
+    var loader = document.getElementById("loader");
+    loader.style.display = "none";
+});#}
 
 //Au chargement de la page
 $(document).ready(function() {
@@ -112,6 +139,8 @@ $(document).ready(function() {
             });
         }
         getMatches(1);
+
+       
 });
            
               

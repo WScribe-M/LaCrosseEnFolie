@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block body %}
+
 <div class="container">
+    {#
+    <div id="loader">
+        <img src="views/images/loader3.gif" alt="Chargement en cours...">
+    </div>
+    #}
     <table id="classementTable">
         <thead>
             <tr>
@@ -24,6 +30,12 @@
 
 {% block script %}
 <script>
+    {#$(window).on("load", function() {
+    var loader = document.getElementById("loader");
+    loader.style.display = "none";
+    });#}
+
+
     $(document).ready(function() {
        
         $.ajax({
