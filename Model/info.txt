@@ -1,5 +1,0 @@
-Le modèle est la logique de votre application. C’est dans les modèles que vous allez créer les interactions avec votre base de données pour traitement de récupération, modification, création ou encore suppression.
-
-Vous pourrez également y placer vos algorithmes et vos traitements d’informations. 
-
-Veillez à décomposer votre code de tel sorte que chacune de vos méthodes ou fonctions remplit un traitement particulier. Ce sera plus lisible pour vous et plus facile à gérer.

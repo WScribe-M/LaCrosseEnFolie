@@ -11,8 +11,10 @@ class Controller
 
     function __construct()
     {
+        //retire les 10 caractères de "Controller" pour qu'il reste uniquement le nom de la classe appelée.//
         $className = substr(get_class($this), 12, -10);
 
+        //si une classe est renseignée, la transformer en minuscule//
         if ($className){
             $path=strtolower($className);
         }
